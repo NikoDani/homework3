@@ -2,13 +2,13 @@ import React, { useContext, useState } from 'react'
 import { BlogContext } from '../context/BlogContext'
 import { useNavigate } from 'react-router-dom'
 
-export default function Create() {
-  const { blogs, setBlogs } = useContext(BlogContext)
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
+export default function Create(){
+  const { blogs,setBlogs } = useContext(BlogContext)
+  const [title,setTitle] = useState('')
+  const [description,setDescription] = useState('')
   const navigate = useNavigate()
 
-  const handleCreate = () => {
+  const handleCreate =() => {
     if (!title || !description) return alert('Please fill all fields')
     const newBlog = {
       id: blogs.length + 1,
@@ -27,14 +27,14 @@ export default function Create() {
         type="text"
         placeholder="Title"
         value={title}
-        onChange={e => setTitle(e.target.value)}
+        onChange={e=> setTitle(e.target.value)}
       />
       <textarea
         placeholder="Description"
         value={description}
-        onChange={e => setDescription(e.target.value)}
+        onChange={e=> setDescription(e.target.value)}
       />
-      <button className="create-btn" onClick={handleCreate}>Create</button>
+      <button className="create-btn"onClick={handleCreate}>Create</button>
     </div>
   )
 }
